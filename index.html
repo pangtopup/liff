@@ -67,6 +67,13 @@
     }
 
     async function getFriendship() {
+      const friend = await liff.getFriendship()
+      document.getElementById("friendship").append(friend.friendFlag)
+      if (!friend.friendFlag) {
+        if (confirm("Add friend now?")) {
+          window.location = "https://lin.ee/ZjGXZkB"
+        }
+      }
     }
 
     async function sendMsg() {
