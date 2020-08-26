@@ -73,11 +73,12 @@
       if (liff.getContext().type !== "none") {
         await liff.sendMessages([
           {
-            "type" : "sticker",
-            "stickerId" : 1,
-            "package" : 1
+            "type": "sticker",
+            "stickerId": 1,
+            "package": 1
           }
         ])
+        alert("Message sent")
       }
     }
 
@@ -96,7 +97,6 @@
       document.getElementById("displayName").append(profile.displayName)
       document.getElementById("statusMessage").append(profile.statusMessage)
       document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
-
     }
 
     function getEnvironment() {
