@@ -9,6 +9,7 @@
 </head>
 
 <body>
+  <p id="Web Version"><b>19</b> </p>
   <p id="os"><b>OS:</b> </p>
   <p id="language"><b>Language:</b> </p>
   <p id="version"><b>Version:</b> </p>
@@ -68,6 +69,7 @@
 
     async function getFriendship() {
       const friend = await liff.getFriendship()
+      alert(friend)
       document.getElementById("friendship").append(friend.friendFlag)
       if (!friend.friendFlag) {
         if (confirm("Add friend now?")) {
