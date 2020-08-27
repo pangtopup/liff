@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <p id="Web Version"><b>25</b> </p>
+  <p id="Web Version"><b>26</b> </p>
   <p id="os"><b>OS:</b> </p>
   <p id="language"><b>Language:</b> </p>
   <p id="version"><b>Version:</b> </p>
@@ -55,14 +55,14 @@
 
       liff.permanentLink.setExtraQueryParam('param=9')
       const link2 = liff.permanentLink.createUrl()
-      ocument.getElementById("universalLink2").append(link2)
+      document.getElementById("universalLink2").append(link2)
     }
 
     async function shareMsg() {
       await liff.shareTargetPicker([
         {
           "type": "text",
-          "text" : "This message was sent by ShareTargetPicker"
+          "text": "This message was sent by ShareTargetPicker"
         }
       ])
     }
@@ -159,7 +159,7 @@
       } else {
         liff.login()
       }
-      
+
     }
     main()
   </script>
