@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <p id="Web Version"><b>23</b> </p>
+  <p id="Web Version"><b>25</b> </p>
   <p id="os"><b>OS:</b> </p>
   <p id="language"><b>Language:</b> </p>
   <p id="version"><b>Version:</b> </p>
@@ -50,9 +50,21 @@
   <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.3.1/sdk.js"></script>
   <script>
     function createUniversalLink() {
+      const link1 = liff.permanentLink.createUrl()
+      document.getElementById("universalLink1").append(link1)
+
+      liff.permanentLink.setExtraQueryParam('param=9')
+      const link2 = liff.permanentLink.createUrl()
+      ocument.getElementById("universalLink2").append(link2)
     }
 
     async function shareMsg() {
+      await liff.shareTargetPicker([
+        {
+          "type": "text",
+          "text" : "This message was sent by ShareTargetPicker"
+        }
+      ])
     }
 
     function logOut() {
@@ -143,10 +155,11 @@
         getUserProfile()
         getContext()
         getFriendship()
+        createUniversalLink()
       } else {
         liff.login()
       }
-      // createUniversalLink()
+      
     }
     main()
   </script>
