@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
+  <title>My LIFF app</title>
+  <link rel="stylesheet" href="../css/style.css" media="all">
+</head>
+
+<body>
+    <div id="map-canvas" ></div>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKpED6mklhnz6sfO6d1_FZYwKCemK8IeY&callback=InitMap&libraries=geometry" defer ></script>
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.3.1/sdk.js"></script>
+    
+    <script>
+        function InitMap() {
+            var arr = new Array();
+            var polygons = [];
+            var bounds = new google.maps.LatLngBounds();
+            arr = [];
+
+            const map = new google.maps.Map(document.getElementById("map-canvas"), {
+                zoom: 16,
+                center: {
+                    lat: 12.702245,
+                    lng: 101.136176
+                }
+            });
+
+            const infoWindow = new google.maps.InfoWindow;
+
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+                };
+
+                infoWindow.setPosition(pos);
+                infoWindow.setContent('Location found.');
+                infoWindow.open(map);
+                map.setCenter(pos);
+            }, function() {
+                handleLocationError(true, infoWindow, map.getCenter());
+            });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+
+            var coordinates = [
+                {
+                    lat: "12.7069945",
+                    lng: "101.1363067"
+                },
+                {
+                    lat: "12.7030802",
+                    lng: "101.1345471"
+                },
+                {
+                    lat: "12.6996891",
+                    lng: "101.1345257"
+                },
+                {
+                    lat: "12.6995844",
+                    lng: "101.1372722"
+                },
+                {
+                    lat: "12.7069945",
+                    lng: "101.1373152"
+                },
+                {
+                    lat: "12.7069945",
+                    lng: "101.1363067"
+                }
+            ];
+
+            for (var j=0; j < coordinates.length; j++) {
+                arr.push( new google.maps.LatLng(
+                        parseFloat(coordinates[j].lat),
+                        parseFloat(coordinates[j].lng)
+                ));
+
+                bounds.extend(arr[0])
+            }
+
+            polygons.push(new google.maps.Polygon({
+                paths: arr,
+                strokeColor: '#FF0000',
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: '#FF0000',
+                fillOpacity: 0.35
+            }));
+
+            //polygons[0].setMap(map);
+            //map.fitBounds(bounds);
+            
+            map.addListener('click', function(e) {
+                const inArea = google.maps.geometry.poly.containsLocation(
+                    e.latLng,
+                    polygons[0]
+                ) ? alert("ลงเวลาทำงานสำเร็จ") : alert("อยู่ภายนอกพื้นที่บริษัท");
+
+                // const resultColor = google.maps.geometry.poly.containsLocation(
+                //     e.latLng,
+                //     polygons[0]
+                // ) ? "blue" : "red";
+                // const resultPath = google.maps.geometry.poly.containsLocation(
+                //     e.latLng,
+                //     polygons[0]
+                // ) ? "m 0 -1 l 1 2 -2 0 z" : google.maps.SymbolPath.CIRCLE;
+
+                // new google.maps.Marker({
+                //     position: e.latLng,
+                //     map,
+                //     icon: {
+                //         path: resultPath,
+                //         fillColor: resultColor,
+                //         fillOpacity: 0.2,
+                //         strokeColor: "white",
+                //         strokeWeight: 0.5,
+                //         scale: 10
+                //     }
+                // });
+            });
+        }
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+    </script>
+</body>
+
+</html>
