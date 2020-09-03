@@ -51,37 +51,37 @@
             const infoWindow = new google.maps.InfoWindow;
 
             // Try HTML5 geolocation.
-            // if (navigator.geolocation) {
-            // navigator.geolocation.getCurrentPosition(function(position) {
-            //     var pos = {
-            //     lat: position.coords.latitude,
-            //     lng: position.coords.longitude
-            //     };
+            if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+                };
 
-            //     infoWindow.setPosition(pos);
-            //     infoWindow.setContent('Location found.');
-            //     infoWindow.open(map);
-            //     map.setCenter(pos);
-            // }, function() {
-            //     handleLocationError(true, infoWindow, map.getCenter());
-            // });
-            // } else {
-            //     // Browser doesn't support Geolocation
-            //     handleLocationError(false, infoWindow, map.getCenter());
-            // }
+                infoWindow.setPosition(pos);
+                infoWindow.setContent('Location found.');
+                infoWindow.open(map);
+                map.setCenter(pos);
+            }, function() {
+                handleLocationError(true, infoWindow, map.getCenter());
+            });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
 
             var coordinates = [
                 {
-                    lat: "12.7069945",
-                    lng: "101.1363067"
+                    lat: "12.706941",
+                    lng: "101.135534"
                 },
                 {
-                    lat: "12.7030802",
-                    lng: "101.1345471"
+                    lat: "12.703241",
+                    lng: "101.133505"
                 },
                 {
-                    lat: "12.6996891",
-                    lng: "101.1345257"
+                    lat: "12.699737",
+                    lng: "101.133377"
                 },
                 {
                     lat: "12.6995844",
@@ -92,9 +92,9 @@
                     lng: "101.1373152"
                 },
                 {
-                    lat: "12.7069945",
-                    lng: "101.1363067"
-                }
+                    lat: "12.706941",
+                    lng: "101.135534"
+                },
             ];
 
             for (var j=0; j < coordinates.length; j++) {
@@ -115,7 +115,7 @@
                 fillOpacity: 0.35
             }));
 
-            polygons[0].setMap(map);
+            //polygons[0].setMap(map);
             //map.fitBounds(bounds);
             
             map.addListener('click', function(e) {
