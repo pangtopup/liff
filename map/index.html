@@ -11,12 +11,12 @@
 </head>
 
 <body>
-    <div class="jumbotron jumbotron-fluid">
+    <!-- <div class="jumbotron jumbotron-fluid">
         <div class="container">
           <h1 class="display-4">Clock GPS</h1>
           <p class="lead">ลงเวลาทำงานผ่าน GPS</p>
         </div>
-    </div>
+    </div> -->
     <div class="card">
         <div class="card-body">
             <div id="map"></div>
@@ -59,7 +59,7 @@
                 };
 
                 infoWindow.setPosition(pos);
-                infoWindow.setContent('Location found.');
+                infoWindow.setContent('คุณอยู่ที่นี่');
                 infoWindow.open(map);
                 map.setCenter(pos);
             }, function() {
