@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <p id="Web Version"><b>30</b> </p>
+  <p id="Web Version"><b>36</b> </p>
   <p id="os"><b>OS:</b> </p>
   <p id="language"><b>Language:</b> </p>
   <p id="version"><b>Version:</b> </p>
@@ -32,7 +32,7 @@
   <p id="isLoggedIn"><b>isLoggedIn:</b> </p>
   <p id="universalLink1"><b>Universal Link:</b> </p>
   <p id="universalLink2"><b>Universal Link with Query params:</b> </p>
-  <p><a href="path/?param=9">Link to Path</a></p>
+  <p><a href="map/index.html">Link to Path</a></p>
 
   <button id="btnMsg" onclick="sendMsg()">Send Message</button>
   <button id="btnShare" onclick="shareMsg()">Share Target Picker</button>
@@ -40,12 +40,6 @@
   <button id="btnScanCode" onclick="scanCode()">Scan Code</button>
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
   <button id="btnClose" onclick="closed()">Close</button>
-
-  <!-- <script src="js/vconsole.min.js"></script> -->
-  <!-- <script>
-    var vConsole = new VConsole()
-    console.log("Hello World!")
-  </script> -->
 
   <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.3.1/sdk.js"></script>
   <script>
@@ -55,7 +49,6 @@
 
       const link2 = liff.permanentLink.createUrl()
       liff.permanentLink.setExtraQueryParam("param=9")
-      alert(link2)
       document.getElementById("universalLink2").append(link2)
     }
 
