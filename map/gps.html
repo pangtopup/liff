@@ -23,7 +23,7 @@
         </div>
     </div>
 
-    <div style="padding: 20px; text-align: center;">
+    <div style="padding: 20px; padding-bottom: 10; text-align: center;">
         <h4 id="dateToday"><i class="far fa-calendar-alt"></i> วันที่ : </h4>
     </div>
     <div style="padding: 20px; padding-top: 0; text-align: center;">
@@ -175,12 +175,8 @@
             var mm = String(todayDate.getMonth() + 1).padStart(2, '0'); //January is 0!
             var yyyy = todayDate.getFullYear();
 
-            var hours = todayDate.getHours().padStart(2, '0');
-            var minute = todayDate.getMinutes().padStart(2, '0');
-
-            console.log(todayDate);
-            console.log(hours);
-            console.log(minute);
+            var hours = String(todayDate.getHours()).padStart(2, '0');
+            var minute = String(todayDate.getMinutes()).padStart(2, '0');
 
             todayDate = mm + '/' + dd + '/' + yyyy;
             todayTime = hours + ':' + minute;
