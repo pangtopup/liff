@@ -175,8 +175,8 @@
             var mm = String(todayDate.getMonth() + 1).padStart(2, '0'); //January is 0!
             var yyyy = todayDate.getFullYear();
 
-            var hours = todayDate.getHours();
-            var minute = todayDate.getMinutes();
+            var hours = todayDate.getHours().padStart(2, '0');
+            var minute = todayDate.getMinutes().padStart(2, '0');
 
             console.log(todayDate);
             console.log(hours);
