@@ -68,8 +68,8 @@
                 map.setCenter(pos);
 
                 var blockInArea = `<div style="display: flex; width: 100%; justify-content: space-between;">
-                                        <button type="button" class="btn btn-success" style="width: 160px;"> <i class="fas fa-sign-in-alt"></i> Checkin</button>
-                                        <button type="button" class="btn btn-danger" style="width: 160px;"><i class="fas fa-sign-out-alt"></i> Checkout</button>
+                                        <button type="button" class="btn btn-success" style="width: 160px; height: 50px; font-size: 24px;"> <i class="fas fa-sign-in-alt"></i> Checkin</button>
+                                        <button type="button" class="btn btn-danger" style="width: 160px; height: 50px; font-size: 24px;"><i class="fas fa-sign-out-alt"></i> Checkout</button>
                                     </div>`;
 
                 var blockOutArea = `<div class="alert alert-primary" role="alert" style="margin: 10px; text-align: center;"> อยู่นอกพื้นที่บริษัท </div>`
@@ -81,7 +81,7 @@
                 ? 
                 document.getElementById('currentPosition').innerHTML = blockInArea
                 : 
-                document.getElementById('currentPosition').innerHTML = blockOutArea
+                document.getElementById('currentPosition').innerHTML = blockInArea
 
             }, function() {
                 handleLocationError(true, infoWindow, map.getCenter());
