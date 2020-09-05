@@ -41,13 +41,13 @@ p {
   justify-content: center;
   align-items: center;
   padding: 10px;
-  padding-top: 0;
 }
 
 .info-text-time {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  padding: 0 20px;
+  padding-top: 10px;
   padding-bottom: 0px;
   text-align: center;
 }
