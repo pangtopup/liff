@@ -36,5 +36,20 @@ p {
   overflow: auto
 }
 
+.info-head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.info-text-time {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  padding-bottom: 0px;
+  text-align: center;
+}
+
 
 

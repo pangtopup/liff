@@ -11,17 +11,23 @@
 </head>
 
 <body>
+    <div class="info-head">
+        <img style="margin-right: 5px;" src="../img/0100.png" alt="" srcset="" width="60">
+        <h3 style="margin: 0;">ไทยโพลิเอททีลีน</h3>
+    </div>
     <div class="card">
         <div class="card-body">
             <div id="map" style="height: 250px; width: 100%;"></div>
         </div>
     </div>
 
-    <div style="padding: 20px; padding-bottom: 0px; text-align: center;">
-        <h4 id="dateToday"><i class="far fa-calendar-alt"></i> วันที่ : </h4>
+    <div class="info-text-time">
+        <h4><i class="far fa-calendar-alt"></i> วันที่ : </h4>
+        <h4 id="dateToday"></h4>
     </div>
-    <div style="padding: 20px; padding-top: 0; text-align: center;">
-        <h4 id="timeToday"><i class="far fa-clock"></i> เวลา : </h4>
+    <div class="info-text-time">
+        <h4><i class="far fa-clock"></i> เวลา : </h4>
+        <h4 id="timeToday"></h4>
     </div>
     <div id="currentPosition"></div>
 
@@ -169,7 +175,6 @@
                               'Error: Your browser doesn\'t support geolocation.');
             infoWindow.open(map);
         }
-
         function dataFormat() {
             var todayDate = new Date();
             var todayTime = "";
